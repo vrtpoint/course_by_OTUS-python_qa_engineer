@@ -1,4 +1,4 @@
-
+"""Фикстура работы браузера и условия запуска из командной строки"""
 from selenium import webdriver
 import pytest
 
