@@ -24,8 +24,14 @@ def driver(request):
     else:
         raise Exception(f"{request.param} is not supported!")
 
+    driver.maximize_window()
     driver.implicitly_wait(wait)
     request.addfinalizer(driver.close)
-    driver.get(request.config.getoption("--opencart_url"))
+
 
     return driver
+
+@pytest.fixture()
+def url_param(request):
+    """Фикстура возвращает аргумент выбора url командной строки"""
+    return request.config.getoption("--opencart_url")
