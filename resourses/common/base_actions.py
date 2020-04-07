@@ -14,9 +14,6 @@ class BaseActions:
         self.__wait.until(EC.element_to_be_clickable((type_selector, selector)))
         return self._driver.find_element(type_selector, selector)
 
-    def __waiting_for_element(self, type_selector, selector):
-        self.__wait.until(EC.visibility_of_element_located((type_selector, selector)))
-
     def _click(self, type_selector, selector):
         self.__searching_element(type_selector, selector).click()
 
