@@ -1,3 +1,4 @@
+"""Модуль с локаторам для корзины"""
 from selenium.webdriver.common.by import By
 
 

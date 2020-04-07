@@ -1,3 +1,4 @@
+"""Модуль с методами для авторизации"""
 from resourses.locators.authorization import AuthorizationLocators
 from resourses.common.base_actions import BaseActions
 

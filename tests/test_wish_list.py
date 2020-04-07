@@ -1,3 +1,4 @@
+"""Модуль с тестами списка желаемых покупок"""
 from resourses.common.base_set_up import BaseSetUp
 from resourses.pages.authorization import ApplicationAuthorizationPage
 from resourses.pages.wish_list import WishListPage

@@ -1,3 +1,4 @@
+"""Модуль с методами для работы с корзиной"""
 from resourses.locators.authorization import AuthorizationLocators
 from resourses.locators.shopping_cart import ShoppingCartLocators
 from resourses.common.base_actions import BaseActions
