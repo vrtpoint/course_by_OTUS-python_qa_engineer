@@ -9,7 +9,7 @@ class ShoppingCartPage(BaseActions):
         shopping_cart = ShoppingCartLocators
         auth = AuthorizationLocators
 
-        def _add_to_shopping_cart(self):
+        def add_to_shopping_cart(self):
             self._click(*self.auth.logo_name)
             assert self._driver.find_element(*self.auth.logo_name).is_displayed()
             cart_buttons = self._driver.find_elements(*self.shopping_cart.add_to_cart_button)
@@ -25,7 +25,7 @@ class ShoppingCartPage(BaseActions):
                 .find_element(*self.shopping_cart.cart_product_name) \
                 .text == 'MacBook'
 
-        def _remove_position_from_shopping_cart(self):
+        def remove_position_from_shopping_cart(self):
             self._click(*self.auth.logo_name)
             assert self._driver.find_element(*self.auth.logo_name).is_displayed()
             self._click(*self.shopping_cart.cart_link)

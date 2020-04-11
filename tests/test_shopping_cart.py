@@ -10,15 +10,15 @@ class TestShoppingCart(BaseSetUp):
     def test_adding_to_shopping_cart(self):
         self.driver.get(config('url'))
         auth_page = self.get_page(ApplicationAuthorizationPage)
-        auth_page._login(config('app_username'), config('app_password'))
+        auth_page.login(config('app_username'), config('app_password'))
         shopping_page = self.get_page(ShoppingCartPage)
-        shopping_page._add_to_shopping_cart()
-        auth_page._logout()
+        shopping_page.add_to_shopping_cart()
+        auth_page.logout()
 
     def test_removal_position_from_shopping_cart(self):
         self.driver.get(config('url'))
         auth_page = self.get_page(ApplicationAuthorizationPage)
-        auth_page._login(config('app_username'), config('app_password'))
+        auth_page.login(config('app_username'), config('app_password'))
         shopping_page = self.get_page(ShoppingCartPage)
-        shopping_page._remove_position_from_shopping_cart()
-        auth_page._logout()
+        shopping_page.remove_position_from_shopping_cart()
+        auth_page.logout()

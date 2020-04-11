@@ -7,7 +7,7 @@ class ApplicationAuthorizationPage(BaseActions):
 
         auth = AuthorizationLocators
 
-        def _login(self, app_username, app_password):
+        def login(self, app_username, app_password):
             self._click(*self.auth.my_account_link)
             self._click(*self.auth.login_link)
             self._input(*self.auth.email_address_field, value=app_username)
@@ -17,7 +17,7 @@ class ApplicationAuthorizationPage(BaseActions):
             assert self._driver\
                 .find_element(*self.auth.account_breadcrumb).text == 'Account'
 
-        def _logout(self):
+        def logout(self):
             self._click(*self.auth.my_account_link)
             self._click(*self.auth.logout_button)
 

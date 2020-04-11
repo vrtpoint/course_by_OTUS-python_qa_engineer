@@ -9,7 +9,7 @@ class WishListPage(BaseActions):
         wish_list = WishListLocators
         auth = AuthorizationLocators
 
-        def _add_to_wish_list(self):
+        def add_to_wish_list(self):
             self._click(*self.auth.logo_name)
             assert self._driver.find_element(*self.auth.logo_name).is_displayed()
             feature_elements = self._driver.find_elements(*self.wish_list.featured_section)
@@ -27,7 +27,7 @@ class WishListPage(BaseActions):
                 .find_element(*self.wish_list.wish_list_product_name) \
                 .text == 'MacBook'
 
-        def _remove_from_wish_list(self):
+        def remove_from_wish_list(self):
             self._click(*self.auth.logo_name)
             assert self._driver.find_element(*self.auth.logo_name).is_displayed()
             feature_elements = self._driver.find_elements(*self.wish_list.featured_section)
