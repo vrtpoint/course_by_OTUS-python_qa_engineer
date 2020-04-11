@@ -1,7 +1,7 @@
 """Модуль с методами для работы с корзиной"""
-from resourses.locators.authorization import AuthorizationLocators
-from resourses.locators.shopping_cart import ShoppingCartLocators
-from resourses.common.base_actions import BaseActions
+from resources.locators.application.auth import AuthorizationLocators
+from resources.locators.application.shopping_cart import ShoppingCartLocators
+from resources.common.base_actions import BaseActions
 
 
 class ShoppingCartPage(BaseActions):

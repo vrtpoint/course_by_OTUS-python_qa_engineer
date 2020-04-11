@@ -1,6 +1,6 @@
 """Модуль с методами для авторизации"""
-from resourses.locators.authorization import AuthorizationLocators
-from resourses.common.base_actions import BaseActions
+from resources.locators.application.auth import AuthorizationLocators
+from resources.common.base_actions import BaseActions
 
 
 class ApplicationAuthorizationPage(BaseActions):

@@ -1,7 +1,7 @@
 """Модуль с методами для работы со списком желаемых покупок"""
-from resourses.locators.authorization import AuthorizationLocators
-from resourses.locators.wish_list import WishListLocators
-from resourses.common.base_actions import BaseActions
+from resources.locators.application.auth import AuthorizationLocators
+from resources.locators.application.wish_list import WishListLocators
+from resources.common.base_actions import BaseActions
 
 
 class WishListPage(BaseActions):

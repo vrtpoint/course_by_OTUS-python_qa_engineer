@@ -1,7 +1,7 @@
 """Модуль с тестами корзины"""
-from resourses.common.base_set_up import BaseSetUp
-from resourses.pages.authorization import ApplicationAuthorizationPage
-from resourses.pages.shopping_cart import ShoppingCartPage
+from resources.common.base_set_up import BaseSetUp
+from resources.pages.application.auth import ApplicationAuthorizationPage
+from resources.pages.application.shopping_cart import ShoppingCartPage
 from decouple import config
 
 

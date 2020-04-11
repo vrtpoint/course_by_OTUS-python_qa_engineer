@@ -1,7 +1,7 @@
 """Модуль с тестами списка желаемых покупок"""
-from resourses.common.base_set_up import BaseSetUp
-from resourses.pages.authorization import ApplicationAuthorizationPage
-from resourses.pages.wish_list import WishListPage
+from resources.common.base_set_up import BaseSetUp
+from resources.pages.application.auth import ApplicationAuthorizationPage
+from resources.pages.application.wish_list import WishListPage
 from decouple import config
 
 
