@@ -10,8 +10,11 @@ class BaseActions:
         self.__wait = WebDriverWait(self._driver, 30)
 
     def __searching_element(self, type_selector, selector):
-        self.__wait.until(EC.visibility_of_element_located((type_selector, selector)))
-        self.__wait.until(EC.element_to_be_clickable((type_selector, selector)))
+        try:
+            self.__wait.until(EC.presence_of_element_located((type_selector, selector)))
+            self.__wait.until(EC.element_to_be_clickable((type_selector, selector)))
+        except:
+            raise Exception(('Element is not found'))
         return self._driver.find_element(type_selector, selector)
 
     def _click(self, type_selector, selector):
