@@ -12,9 +12,9 @@ class SideBar:
 class Products:
 
     products_list = (By.CSS_SELECTOR, '#form-product .table-responsive tr td:nth-child(3)')
-    product_item = (By.CSS_SELECTOR, '#form-product .table-responsive tr input[type="checkbox"]')
+    product_item = (By.CSS_SELECTOR, '.table-responsive tr input[type="checkbox"]')
     add_product_item = (By.CSS_SELECTOR, '.container-fluid .pull-right .btn-primary i')
-    edit_product_item = (By.CSS_SELECTOR, '#form-product .table-responsive tr [data-original-title="Edit"]')
+    edit_product_item = (By.CSS_SELECTOR, '.table-responsive tr [data-original-title="Edit"]')
     description_field = (By.CSS_SELECTOR, '.note-editor .panel-body')
     submition_button = (By.CSS_SELECTOR, '.pull-right button[type="submit"]')
     delete_product_item = (By.CSS_SELECTOR, '.container-fluid .pull-right .btn-danger')
