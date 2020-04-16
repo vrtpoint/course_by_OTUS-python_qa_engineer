@@ -45,7 +45,7 @@ class ProductPage(BaseActions):
             Alert(self._driver).accept()
             assert self._driver.find_element(*self.product.operation_status).text.split("\n")[0] == 'Success: You have modified products!'
 
-        def upload_userpicture(self):
+        def upload_picture(self):
             self._click(*self.catalog.catalog_list)
             self._click(*self.catalog.downloads_element)
             self._click(*self.catalog.add_button)

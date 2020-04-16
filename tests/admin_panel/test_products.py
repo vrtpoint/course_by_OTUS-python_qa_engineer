@@ -28,9 +28,9 @@ class TestProducts(BaseSetUp):
         product = self.get_page(ProductPage)
         product.delete_product_item()
 
-    def test_uploading_userpicture(self):
+    def test_uploading_picture(self):
         self.driver.get(config('url') + '/admin')
         auth_page = self.get_page(AdminPanelAuthorizationPage)
         auth_page.login(config('admin_username'), config('admin_password'))
         product = self.get_page(ProductPage)
-        product.upload_userpicture()
+        product.upload_picture()
