@@ -16,8 +16,8 @@ def driver(request):
     wait = request.config.getoption("--implicitly_wait")
     browser = Browser(browser=browser, wait=wait)
 
-    request.addfinalizer(browser.driver.close)
-    return browser.driver
+    yield browser.driver
+    browser.driver.quit()
 
 
 
