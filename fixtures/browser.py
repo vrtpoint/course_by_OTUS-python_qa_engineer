@@ -1,10 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 import logging
+from .logger import browser_log
 
 
-# Класс для работа с событиями в браузере
 class BrowserListener(AbstractEventListener):
+    """Класс для работа с событиями в браузере"""
 
     def on_exception(self, exception, driver):
         logging.error(f'{exception}')
@@ -12,6 +13,7 @@ class BrowserListener(AbstractEventListener):
 
 
 class Browser:
+    """Класс для работа с настройками браузеров"""
 
     def __init__(self, browser, wait):
         if browser == "chrome":
@@ -27,6 +29,7 @@ class Browser:
 
         self.driver.maximize_window()
         self.driver.implicitly_wait(wait)
+        self.browser_log = browser_log()
 
 
 
