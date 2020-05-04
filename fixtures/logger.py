@@ -19,12 +19,12 @@ def browser_log():
     filehandler_info.setLevel(level=logging.INFO)
     filehandler_info.setFormatter(formatter)
 
-    filehandler_critical = logging.FileHandler(filename='logs/warning.log', mode='a')
-    filehandler_critical.setLevel(level=logging.INFO)
-    filehandler_critical.setFormatter(formatter)
+    filehandler_warning = logging.FileHandler(filename='logs/warning.log', mode='a')
+    filehandler_warning.setLevel(level=logging.WARNING)
+    filehandler_warning.setFormatter(formatter)
 
     filehandler_error = logging.FileHandler(filename='logs/error.log', mode='a')
-    filehandler_error.setLevel(level=logging.INFO)
+    filehandler_error.setLevel(level=logging.ERROR)
     filehandler_error.setFormatter(formatter)
 
     consolehandler_info = logging.StreamHandler()
@@ -32,7 +32,7 @@ def browser_log():
     consolehandler_info.setFormatter(formatter)
 
     log.addHandler(filehandler_info)
-    log.addHandler(filehandler_critical)
+    log.addHandler(filehandler_warning)
     log.addHandler(filehandler_error)
 
     log.addHandler(consolehandler_info)
