@@ -1,6 +1,7 @@
 """Модуль с методами действий на сайте"""
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebElement
 
 
 class BaseActions:
@@ -14,8 +15,8 @@ class BaseActions:
             self.__wait.until(EC.presence_of_element_located((type_selector, selector)))
             self.__wait.until(EC.element_to_be_clickable((type_selector, selector)))
         except:
-            raise Exception(('Element is not found'))
-        return self._driver.find_element(type_selector, selector)
+            raise Exception('Element is not found')
+        return EventFiringWebElement(self._driver.find_element(type_selector, selector))
 
     def _click(self, type_selector, selector):
         self.__searching_element(type_selector, selector).click()
