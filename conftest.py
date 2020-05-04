@@ -15,9 +15,9 @@ def driver(request):
     browser = request.config.getoption("--browser")
     wait = request.config.getoption("--implicitly_wait")
     browser = Browser(browser=browser, wait=wait)
-    logging.info(f'{browser} is starting!')
+    browser.browser_log.info(f'{browser} is starting!')
     yield browser.driver
     browser.driver.quit()
-    logging.info(f'{browser} is stopping!')
+    browser.browser_log.info(f'{browser} is stopping!')
 
 
