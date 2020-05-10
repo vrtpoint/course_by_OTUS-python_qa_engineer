@@ -6,7 +6,7 @@ from fixtures.browser import Browser
 
 def pytest_addoption(parser):
     """Добавление различных аргументов командной строки"""
-    parser.addoption("--browser", action="store", default="firefox", help="This is request browser", required=False)
+    parser.addoption("--browser", action="store", default="chrome", help="This is request browser", required=False)
     parser.addoption("--implicitly_wait", action="store", default="3", help="waiting time in the seconds", required=False)
     parser.addoption("--file", action='store', default=None, help='file with log report')
 
