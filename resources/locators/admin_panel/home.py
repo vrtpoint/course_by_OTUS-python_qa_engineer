@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 
 
 class Menu:
+
+    dashboard_title = (By.CSS_SELECTOR, '.page-header h1')
     logout_button = (By.CSS_SELECTOR, '.navbar-right .fa-sign-out')
 
 
