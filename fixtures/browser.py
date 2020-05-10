@@ -8,12 +8,14 @@ class BrowserListener(AbstractEventListener):
     """Класс для работа с событиями в браузере"""
 
     def on_exception(self, exception, driver):
+        """Метод снятия скриншота при возникновении ошибки"""
         logging.error(f'{exception}')
-        self.driver.save_screenshot(f'screenshots/{exception}.png')
-
+        driver.save_screenshot(f'screenshots/{exception}.png')
 
 class Browser:
     """Класс для работа с настройками браузеров"""
+
+    LOGGER_NAME = 'browser'
 
     def __init__(self, browser, wait):
         if browser == "chrome":
@@ -29,7 +31,7 @@ class Browser:
 
         self.driver.maximize_window()
         self.driver.implicitly_wait(wait)
-        self.browser_log = browser_log()
+        self.browser_log = browser_log(self.LOGGER_NAME)
 
 
 

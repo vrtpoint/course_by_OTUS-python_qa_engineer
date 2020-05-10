@@ -11,3 +11,9 @@ class BaseSetUp:
 
     def get_page(self, Page):
         return Page(self.driver)
+
+    def check_console(self, driver):
+        """Метод проверки корректности логов"""
+        self.driver = driver
+        for log in self.driver.get_log('browser'):
+            assert 'Uncaught' not in log

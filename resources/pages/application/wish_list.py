@@ -6,8 +6,13 @@ from resources.common.base_actions import BaseActions
 
 class WishListPage(BaseActions):
 
+        LOGGER_NAME = 'WishListPage'
+
         wish_list = WishListLocators
         auth = AuthorizationLocators
+
+        def __index__(self, driver):
+            super().__init__(driver, self.LOGGER_NAME)
 
         def add_to_wish_list(self):
             self._click(*self.auth.logo_name)
@@ -26,6 +31,7 @@ class WishListPage(BaseActions):
             assert self._driver \
                 .find_element(*self.wish_list.wish_list_product_name) \
                 .text == 'MacBook'
+            self.logger.info('position was added into wish list')
 
         def remove_from_wish_list(self):
             self._click(*self.auth.logo_name)
@@ -44,3 +50,4 @@ class WishListPage(BaseActions):
             assert self._driver \
                 .find_element(*self.wish_list.my_wish_list_breadcrumb) \
                 .text == 'My Wish List'
+            self.logger.info('position was added into wish list')

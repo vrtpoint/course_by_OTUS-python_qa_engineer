@@ -13,6 +13,7 @@ class TestProducts(BaseSetUp):
         auth_page.login(config('admin_username'), config('admin_password'))
         sidebar = self.get_page(ProductPage)
         sidebar.add_product_item()
+        self.check_console(self.driver)
 
     def test_edition_product_item(self):
         self.driver.get(config('url') + '/admin')
@@ -20,6 +21,7 @@ class TestProducts(BaseSetUp):
         auth_page.login(config('admin_username'), config('admin_password'))
         product = self.get_page(ProductPage)
         product.edit_button()
+        self.check_console(self.driver)
 
     def test_deletion_product_item(self):
         self.driver.get(config('url') + '/admin')
@@ -27,6 +29,7 @@ class TestProducts(BaseSetUp):
         auth_page.login(config('admin_username'), config('admin_password'))
         product = self.get_page(ProductPage)
         product.delete_product_item()
+        self.check_console(self.driver)
 
     def test_uploading_picture(self):
         self.driver.get(config('url') + '/admin')
@@ -34,3 +37,4 @@ class TestProducts(BaseSetUp):
         auth_page.login(config('admin_username'), config('admin_password'))
         product = self.get_page(ProductPage)
         product.upload_picture()
+        self.check_console(self.driver)

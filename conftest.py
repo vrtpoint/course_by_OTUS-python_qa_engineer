@@ -8,16 +8,21 @@ def pytest_addoption(parser):
     """Добавление различных аргументов командной строки"""
     parser.addoption("--browser", action="store", default="firefox", help="This is request browser", required=False)
     parser.addoption("--implicitly_wait", action="store", default="3", help="waiting time in the seconds", required=False)
+    parser.addoption("--file", action='store', default=None, help='file with log report')
 
 @pytest.fixture()
 def driver(request):
     """Фикстура запуска различных браузеров"""
-    browser = request.config.getoption("--browser")
+    active_browser = request.config.getoption("--browser")
     wait = request.config.getoption("--implicitly_wait")
-    browser = Browser(browser=browser, wait=wait)
-    browser.browser_log.info(f'{browser} is starting!')
-    yield browser.driver
-    browser.driver.quit()
-    browser.browser_log.info(f'{browser} is stopping!')
+    filename = request.config.getoption('--file')
+
+    active_browser = Browser(browser=active_browser, wait=wait)
+    logging.basicConfig(level=logging.INFO, filename=filename)
+    active_browser.browser_log.info(f'{active_browser} is starting!')
+
+    yield active_browser.driver
+    active_browser.driver.quit()
+    active_browser.browser_log.info(f'{active_browser} is stopping!')
 
 

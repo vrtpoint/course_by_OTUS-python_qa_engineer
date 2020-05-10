@@ -13,7 +13,8 @@ class TestWishList(BaseSetUp):
         auth_page.login(config('app_username'), config('app_password'))
         wish_list_page = self.get_page(WishListPage)
         wish_list_page.add_to_wish_list()
-        auth_page.logout()
+        auth_page.logout(config('app_username'))
+        self.check_console(self.driver)
 
     def test_removal_position_from_wish_list(self):
         self.driver.get(config('url'))
@@ -21,4 +22,5 @@ class TestWishList(BaseSetUp):
         auth_page.login(config('app_username'), config('app_password'))
         wish_list_page = self.get_page(WishListPage)
         wish_list_page.remove_from_wish_list()
-        auth_page.logout()
+        auth_page.logout(config('app_username'))
+        self.check_console(self.driver)

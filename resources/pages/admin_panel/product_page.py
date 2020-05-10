@@ -8,9 +8,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class ProductPage(BaseActions):
 
+        LOGGER_NAME = 'AdminPanelAuthorizationPage'
+
         catalog = Catalog
         product = Products
         downloads = Downloads
+
+        def __index__(self, driver):
+            super().__init__(driver, self.LOGGER_NAME)
 
         def add_product_item(self):
             self._click(*self.catalog.catalog_list)
@@ -23,6 +28,7 @@ class ProductPage(BaseActions):
             self._input(*self.product.model_field, value='test')
             self._click(*self.catalog.submit_button)
             assert self._driver.find_element(*self.product.operation_status).text.split("\n")[0] == 'Success: You have modified products!'
+            self.logger.info('product item was added into product list')
 
         def edit_product_item(self):
             self._click(*self.catalog.catalog_list)
@@ -35,6 +41,7 @@ class ProductPage(BaseActions):
             self._input(*self.product.description_field, value='test_product')
             self._click(*self.catalog.submit_button)
             assert self._driver.find_element(*self.product.operation_status).text.split("\n")[0] == 'Success: You have modified products!'
+            self.logger.info('product item was edited into product list')
 
         def delete_product_item(self):
             self._click(*self.catalog.catalog_list)
@@ -44,6 +51,7 @@ class ProductPage(BaseActions):
             self._click(*self.product.delete_product_item)
             Alert(self._driver).accept()
             assert self._driver.find_element(*self.product.operation_status).text.split("\n")[0] == 'Success: You have modified products!'
+            self.logger.info('product item was deleted into product list')
 
         def upload_picture(self):
             self._click(*self.catalog.catalog_list)
@@ -61,4 +69,5 @@ class ProductPage(BaseActions):
             self._input(*self.downloads.mask_field, value='test_mask')
             self._click(*self.catalog.submit_button)
             assert self._driver.find_element(*self.downloads.downloaded_file_name).text == 'test_name_field'
+            self.logger.info('picture was uploaded into download list')
 
