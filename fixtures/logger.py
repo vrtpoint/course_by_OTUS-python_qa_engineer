@@ -2,7 +2,7 @@ import logging
 import os
 
 
-def browser_log():
+def browser_log(logger_name):
     """Создание логгера для браузера"""
 
     try:
@@ -10,7 +10,7 @@ def browser_log():
     except FileNotFoundError:
         os.mkdir('logs')
 
-    log = logging.getLogger('browser')
+    log = logging.getLogger(logger_name)
     log.setLevel(logging.INFO)
 
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
