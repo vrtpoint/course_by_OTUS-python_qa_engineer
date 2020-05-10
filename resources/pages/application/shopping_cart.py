@@ -38,5 +38,5 @@ class ShoppingCartPage(BaseActions):
             self._click(*self.shopping_cart.delete_cart_position_button)
             assert self._driver \
                 .find_element(*self.shopping_cart.cart_info) \
-                .text == 'Shopping Cart'
+                .text == 'Your shopping cart is empty!'
             self.logger.info('position was removed from shopping cart')
