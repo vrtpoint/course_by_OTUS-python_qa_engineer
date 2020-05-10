@@ -17,3 +17,7 @@ class AdminPanelAuthorizationPage(BaseActions):
             self._input(*self.auth.login_field, value=app_username)
             self._input(*self.auth.password_field, value=app_password)
             self._click(*self.auth.submit_login_button)
+
+            assert self._driver \
+                       .find_element(*self.menu.dashboard_title).text == 'Dashboard'
+            self.logger.info(f'{app_username} was logged in')
