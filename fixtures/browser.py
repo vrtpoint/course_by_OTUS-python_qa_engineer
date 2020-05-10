@@ -19,7 +19,9 @@ class Browser:
 
     def __init__(self, browser, wait):
         if browser == "chrome":
-            self.driver = EventFiringWebDriver(webdriver.Chrome(), BrowserListener())
+            options = webdriver.ChromeOptions()
+            options.add_argument('--ignore-certificate-errors')
+            self.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options=options), BrowserListener())
         elif browser == "firefox":
             self.driver = EventFiringWebDriver(webdriver.Firefox(), BrowserListener())
         elif browser == "opera":
