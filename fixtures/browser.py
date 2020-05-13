@@ -21,7 +21,7 @@ class Browser:
         if browser == "chrome":
             options = webdriver.ChromeOptions()
             options.add_argument('--ignore-certificate-errors')
-            self.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options=options), BrowserListener())
+            self.driver = EventFiringWebDriver(webdriver.Chrome(options=options), BrowserListener())
         elif browser == "firefox":
             self.driver = EventFiringWebDriver(webdriver.Firefox(), BrowserListener())
         elif browser == "opera":
