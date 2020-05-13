@@ -3,10 +3,12 @@ from resources.common.base_set_up import BaseSetUp
 from resources.pages.application.auth import ApplicationAuthorizationPage
 from resources.pages.application.shopping_cart import ShoppingCartPage
 from decouple import config
+import allure
 
 
 class TestShoppingCart(BaseSetUp):
 
+    @allure.feature('Работа с корзиной')
     def test_adding_to_shopping_cart(self):
         self.driver.get(config('url'))
         auth_page = self.get_page(ApplicationAuthorizationPage)
@@ -16,6 +18,7 @@ class TestShoppingCart(BaseSetUp):
         auth_page.logout(config('app_username'))
         self.check_console(self.driver)
 
+    @allure.feature('Работа с корзиной')
     def test_removal_position_from_shopping_cart(self):
         self.driver.get(config('url'))
         auth_page = self.get_page(ApplicationAuthorizationPage)
