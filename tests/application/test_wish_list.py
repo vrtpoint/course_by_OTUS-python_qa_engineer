@@ -5,10 +5,12 @@ from resources.pages.application.wish_list import WishListPage
 from decouple import config
 import allure
 
+
 class TestWishList(BaseSetUp):
 
     @allure.feature('Работа cо списком желаемых покупок')
     def test_adding_to_wish_list(self):
+        """Добавление товара в список желаемых покупок"""
         self.driver.get(config('url'))
         auth_page = self.get_page(ApplicationAuthorizationPage)
         auth_page.login(config('app_username'), config('app_password'))
@@ -19,6 +21,7 @@ class TestWishList(BaseSetUp):
 
     @allure.feature('Работа cо списком желаемых покупок')
     def test_removal_position_from_wish_list(self):
+        """Удаление товара в список желаемых покупок"""
         self.driver.get(config('url'))
         auth_page = self.get_page(ApplicationAuthorizationPage)
         auth_page.login(config('app_username'), config('app_password'))

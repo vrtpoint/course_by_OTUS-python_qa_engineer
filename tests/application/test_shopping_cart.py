@@ -10,6 +10,7 @@ class TestShoppingCart(BaseSetUp):
 
     @allure.feature('Работа с корзиной')
     def test_adding_to_shopping_cart(self):
+        """Добавление товара в корзину"""
         self.driver.get(config('url'))
         auth_page = self.get_page(ApplicationAuthorizationPage)
         auth_page.login(config('app_username'), config('app_password'))
@@ -20,6 +21,7 @@ class TestShoppingCart(BaseSetUp):
 
     @allure.feature('Работа с корзиной')
     def test_removal_position_from_shopping_cart(self):
+        """Удаление товара в корзину"""
         self.driver.get(config('url'))
         auth_page = self.get_page(ApplicationAuthorizationPage)
         auth_page.login(config('app_username'), config('app_password'))
