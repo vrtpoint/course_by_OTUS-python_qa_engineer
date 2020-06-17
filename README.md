@@ -8,7 +8,7 @@
 
 Можно использовать любую систему виртуализации, но если у вас нет предпочтений -- берите https://www.virtualbox.org/
 
-Готовые образы Windows для разных систем виртуализации можно найти здесь: https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
+Готовые образы Windows для разных систем виртуализации можно найти здесь:   https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
 
 2 - Запустить несколько тестов в каком-нибудь облачном сервисе на выбор:
 
