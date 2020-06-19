@@ -41,26 +41,10 @@ def driver(request):
         driver = webdriver.Safari()
     else:
         raise Exception(f"{request.param} is not supported!")
-    
+
     driver.maximize_window()
     driver.implicitly_wait(wait)
     request.addfinalizer(driver.close)
 
     return driver
 
-
-# # Фикстура запуска удаленного запуска браузера
-# @pytest.fixture
-# def driver(request):
-#     browser = request.config.getoption("--browser")
-#     wait = request.config.getoption("--implicitly_wait")
-#     selenoid = request.config.getoption("--selenoid")
-#     executor = request.config.getoption("--executor")
-#     driver = webdriver.Remote(command_executor=f"http://{executor}:4444/wd/hub",
-#                           desired_capabilities={"browserName": browser})
-#
-#     driver.maximize_window()
-#     driver.implicitly_wait(wait)
-#     request.addfinalizer(driver.close)
-#
-#     return driver
