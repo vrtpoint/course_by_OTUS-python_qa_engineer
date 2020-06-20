@@ -1,7 +1,14 @@
 FROM python:3.7
-MAINTAINER vrtpoint@gmail.com
-COPY . /course_by_OTUS-python_qa_engineer
+
+LABEL author=vrtpoint
+
 WORKDIR /course_by_OTUS-python_qa_engineer
-RUN pip install -r requirements.txt
+
+COPY . /course_by_OTUS-python_qa_engineer
+
+RUN pip3 install -r requirements.txt
+
 CMD tail -f /dev/null
+
+
 
