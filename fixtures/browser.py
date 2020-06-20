@@ -12,6 +12,7 @@ class BrowserListener(AbstractEventListener):
         logging.error(f'{exception}')
         driver.save_screenshot(f'screenshots/{exception}.png')
 
+
 class Browser:
     """Класс для работа с настройками браузеров"""
 
