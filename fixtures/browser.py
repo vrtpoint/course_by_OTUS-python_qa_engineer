@@ -17,8 +17,16 @@ class Browser:
 
     LOGGER_NAME = 'browser'
 
-    def __init__(self, browser, wait):
-        if browser == "chrome":
+    def __init__(self, browser, wait, selenoid):
+
+        capabilities = {
+            "browserName": "chrome",
+            "version": "83.0",
+        }
+        if selenoid == True:
+            driver = webdriver.Remote(command_executor=f"http://localhost:8082/wd/hub",
+                                      desired_capabilities=capabilities)
+        elif browser == "chrome":
             options = webdriver.ChromeOptions()
             options.add_argument('--ignore-certificate-errors')
             self.driver = EventFiringWebDriver(webdriver.Chrome(options=options), BrowserListener())

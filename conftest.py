@@ -9,6 +9,8 @@ def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome", help="This is request browser", required=False)
     parser.addoption("--implicitly_wait", action="store", default="3", help="waiting time in the seconds", required=False)
     parser.addoption("--file", action='store', default=None, help='file with log report')
+    parser.addoption("--selenoid", action="store", default="False")
+
 
 @pytest.fixture()
 def driver(request):
@@ -16,8 +18,9 @@ def driver(request):
     active_browser = request.config.getoption("--browser")
     wait = request.config.getoption("--implicitly_wait")
     filename = request.config.getoption('--file')
+    selenoid = request.config.getoption("--selenoid")
 
-    active_browser = Browser(browser=active_browser, wait=wait)
+    active_browser = Browser(browser=active_browser, wait=wait, selenoid=selenoid)
     logging.basicConfig(level=logging.INFO, filename=filename)
     active_browser.browser_log.info(f'{active_browser} is starting!')
 
