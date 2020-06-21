@@ -1,9 +1,7 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent {
-        label 'homework#29/continuous_integration'
-        }
+    agent any
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
@@ -32,4 +30,3 @@ pipeline {
         }
     }
   }
-}
