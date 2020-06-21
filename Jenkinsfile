@@ -20,10 +20,6 @@ pipeline {
                 sh "docker build - < Dockerfile"
             }
         }
-        stage("clone repository") {
-            steps {
-                sh "git clone https://github.com/vrtpoint/course_by_OTUS-python_qa_engineer"
-            }
         stage('lint') {
             steps {
                 sh 'flake8 .'
@@ -32,13 +28,6 @@ pipeline {
         stage('tests') {
             steps {
                 sh "pytest -v -s"
-            }
-            post {
-                always {
-                    dir ('/app/allure-reports') {
-                        archiveArtifacts artifacts: '**', fingerprint: true
-                    }
-                }
             }
         }
     }
