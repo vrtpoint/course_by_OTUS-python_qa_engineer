@@ -12,26 +12,10 @@ pipeline {
                 sh "free -h"
             }
         }
-        stage('lint') {
-            steps {
-                sh 'flake8 .'
-            }
-        }
         stage('tests') {
             steps {
                 sh "pytest -v -s"
             }
         }
-        post {
-            always {
-                script {
-                    allure ([
-                    includeProperties: false,
-                    jdk: '',
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'python-selenium/allure-results']]])
-                }
-        }
     }
-    }
-  }
+}
