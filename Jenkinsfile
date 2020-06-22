@@ -12,12 +12,6 @@ pipeline {
                 sh "free -h"
             }
         }
-        stage("create docker image") {
-            steps {
-                echo "start building image"
-                sh "docker build - < Dockerfile"
-            }
-        }
         stage('lint') {
             steps {
                 sh 'flake8 .'
@@ -28,5 +22,16 @@ pipeline {
                 sh "pytest -v -s"
             }
         }
+        post {
+            always {
+                script {
+                    allure ([
+                    includeProperties: false,
+                    jdk: '',
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'python-selenium/allure-results']]])
+                }
+        }
+    }
     }
   }
