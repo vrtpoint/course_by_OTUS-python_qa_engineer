@@ -3,3 +3,4 @@ pylint == 2.4.4
 robotframework==3.2.1
 robotframework-selenium2library==3.0.0
 robotframework-databaselibrary
+pymysql==0.9.3
